@@ -46,8 +46,9 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
 
           # Envia tudo do repo para dentro do DEPLOY_PATH
-          source: ".deploy-package/*"
+          source: ".deploy-package/"
           target: /home/u986889441/domains/appcod.com.br/public_html
+          strip_components: 1
 
           # Importante: sobrescreve arquivos com mesmo nome
           overwrite: true
