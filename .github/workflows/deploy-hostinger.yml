@@ -16,6 +16,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug checked-out revision
+        run: |
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          git log -1 --oneline
+          echo "=== LOCAL INDEX.HTML (HEAD) ==="
+          sed -n '1,40p' index.html
+
       - name: Build deploy package (exclude unnecessary files)
         run: |
           rm -rf .deploy-package
