@@ -1,0 +1,59 @@
+name: Deploy (Hostinger) - PHP (overwrite only)
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload files to server (SCP overwrite, no delete)
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+          port: ${{ secrets.SSH_PORT }}
+
+          # Envia tudo do repo para dentro do DEPLOY_PATH
+          source: "."
+          target: /home/u986889441/domains/appcod.com.br/public_html
+
+          # Importante: sobrescreve arquivos com mesmo nome
+          overwrite: true
+
+          # Importante: NÃO remove nada no servidor
+          rm: false
+
+          # Não enviar itens desnecessários / sensíveis
+          exclude: |
+            .git/
+            .github/
+            .env
+            node_modules/
+            vendor/
+            storage/logs/
+
+      - name: Post-deploy commands (optional)
+        env:
+          POST_DEPLOY: ${{ secrets.POST_DEPLOY }}
+        if: ${{ env.POST_DEPLOY != '' }}
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            cd /home/u986889441/domains/appcod.com.br/public_html
+            ${{ env.POST_DEPLOY }}
