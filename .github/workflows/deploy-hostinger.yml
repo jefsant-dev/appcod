@@ -62,3 +62,32 @@ jobs:
             set -e
             cd /home/u986889441/domains/appcod.com.br/public_html
             ${{ env.POST_DEPLOY }}
+
+      - name: Verify deployed files on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            cd /home/u986889441/domains/appcod.com.br/public_html
+            echo "=== DEPLOY DIR ==="
+            pwd
+            echo "=== FILES (TOP) ==="
+            ls -la | sed -n '1,80p'
+            echo "=== INDEX.HTML (HEAD) ==="
+            if [ -f index.html ]; then
+              stat index.html || true
+              sed -n '1,40p' index.html
+            else
+              echo "index.html NOT FOUND"
+            fi
+            echo "=== INDEX.PHP (HEAD) ==="
+            if [ -f index.php ]; then
+              stat index.php || true
+              sed -n '1,40p' index.php
+            else
+              echo "index.php NOT FOUND"
+            fi
