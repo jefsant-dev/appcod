@@ -1927,6 +1927,36 @@
             box-shadow: 0 10px 30px rgba(67, 56, 202, 0.4);
         }
 
+        .form-feedback {
+            margin-top: 0.9rem;
+            padding: 0.75rem 0.9rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .form-feedback.show {
+            display: block;
+        }
+
+        .form-feedback.success {
+            background: rgba(16, 185, 129, 0.12);
+            color: #065f46;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+        }
+
+        .form-feedback.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #7f1d1d;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .form-feedback.loading {
+            background: rgba(67, 56, 202, 0.1);
+            color: #312e81;
+            border: 1px solid rgba(67, 56, 202, 0.25);
+        }
+
         /* ===== FOOTER ===== */
         footer {
             background: #020407;
@@ -2978,6 +3008,7 @@
                     <p>Conte sobre seu projeto e entraremos em contato em breve.</p>
                     <!-- action será configurado no back-end -->
                     <form id="contactForm" action="#" method="POST">
+                        <input type="hidden" id="visitorId" name="visitor_id" value="">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
@@ -3009,6 +3040,7 @@
                         <button type="submit" class="btn-form-submit">
                             <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem
                         </button>
+                        <div id="contactFeedback" class="form-feedback" role="status" aria-live="polite"></div>
                     </form>
                 </div>
 
@@ -3099,6 +3131,90 @@
             setTimeout(hideIndicator, 8000);
             window.addEventListener('scroll', function() { if (window.scrollY > 0) hideIndicator(); }, { passive: true });
         })();
+
+        /* TRACK VISIT + CONTACT API */
+        const visitorIdInput = document.getElementById('visitorId');
+        const contactForm = document.getElementById('contactForm');
+        const contactFeedback = document.getElementById('contactFeedback');
+
+        function setFeedback(type, text) {
+            if (!contactFeedback) return;
+            contactFeedback.className = `form-feedback show ${type}`;
+            contactFeedback.textContent = text;
+        }
+
+        async function trackVisit() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const payload = {
+                    landing_url: window.location.href,
+                    referrer: document.referrer || null,
+                    utm_source: params.get('utm_source'),
+                    utm_medium: params.get('utm_medium'),
+                    utm_campaign: params.get('utm_campaign'),
+                    utm_term: params.get('utm_term'),
+                    utm_content: params.get('utm_content')
+                };
+
+                const response = await fetch('api/track_visit.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    keepalive: true
+                });
+
+                const result = await response.json();
+                if (result && result.ok && result.tracked && result.visitor_id && visitorIdInput) {
+                    visitorIdInput.value = String(result.visitor_id);
+                }
+            } catch (_) {
+                // Falha silenciosa: rastreamento não pode interromper a página.
+            }
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const submitButton = contactForm.querySelector('.btn-form-submit');
+                const formData = new FormData(contactForm);
+
+                setFeedback('loading', 'Enviando mensagem...');
+                if (submitButton) submitButton.disabled = true;
+
+                try {
+                    const payload = {
+                        nome: formData.get('nome'),
+                        email: formData.get('email'),
+                        assunto: formData.get('assunto'),
+                        mensagem: formData.get('mensagem'),
+                        visitor_id: formData.get('visitor_id') || null
+                    };
+
+                    const response = await fetch('api/send_message.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+                    if (response.ok && result.ok) {
+                        setFeedback('success', result.message || 'Mensagem enviada com sucesso.');
+                        contactForm.reset();
+                        if (visitorIdInput && payload.visitor_id) {
+                            visitorIdInput.value = String(payload.visitor_id);
+                        }
+                    } else {
+                        setFeedback('error', (result && result.message) ? result.message : 'Falha ao enviar a mensagem.');
+                    }
+                } catch (_) {
+                    setFeedback('error', 'Nao foi possivel enviar agora. Tente novamente em instantes.');
+                } finally {
+                    if (submitButton) submitButton.disabled = false;
+                }
+            });
+        }
+
+        trackVisit();
 
         /* ACTIVE NAV */
         const sections = document.querySelectorAll('section[id]'), navLinks = document.querySelectorAll('nav a[href^="#"]');
