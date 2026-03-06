@@ -5,6 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AppCod | Soluções em Tecnologia</title>
+    <meta name="description" content="Desenvolvimento de sites, sistemas e aplicativos sob medida. Da concepção ao deploy, a AppCod cria soluções digitais com foco em resultado.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://appcod.com.br/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="AppCod">
+    <meta property="og:url" content="https://appcod.com.br/">
+    <meta property="og:title" content="AppCod | Soluções em Tecnologia">
+    <meta property="og:description" content="Desenvolvimento de sites, sistemas e aplicativos sob medida. Da concepção ao deploy, a AppCod cria soluções digitais com foco em resultado.">
+    <meta property="og:image" content="https://appcod.com.br/assets/img/appcod-og-image.jpg">
+    <meta property="og:image:secure_url" content="https://appcod.com.br/assets/img/appcod-og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="AppCod - Soluções em Tecnologia">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://appcod.com.br/">
+    <meta name="twitter:title" content="AppCod | Soluções em Tecnologia">
+    <meta name="twitter:description" content="Desenvolvimento de sites, sistemas e aplicativos sob medida. Da concepção ao deploy, a AppCod cria soluções digitais com foco em resultado.">
+    <meta name="twitter:image" content="https://appcod.com.br/assets/img/appcod-og-image.jpg">
+    <meta name="twitter:image:alt" content="AppCod - Soluções em Tecnologia">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://appcod.com.br/#organization",
+                    "name": "AppCod",
+                    "url": "https://appcod.com.br/",
+                    "logo": "https://appcod.com.br/assets/img/logo.webp",
+                    "email": "contato@appcod.com.br",
+                    "telephone": "+55-51-98317-7780"
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://appcod.com.br/#website",
+                    "url": "https://appcod.com.br/",
+                    "name": "AppCod",
+                    "inLanguage": "pt-BR",
+                    "publisher": {
+                        "@id": "https://appcod.com.br/#organization"
+                    }
+                }
+            ]
+        }
+    </script>
     <link rel="icon" type="image/png" href="assets/icons/favicon.png">
     <link rel="stylesheet" href="plugins/fonts/google-fonts.css">
     <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
@@ -2155,7 +2202,7 @@
         <a href="#portfolio" onclick="closeMobile()">Portfólio</a>
         <a href="#clientes" onclick="closeMobile()">Clientes</a>
         <a href="#contato" onclick="closeMobile()">Contato</a>
-        <a href="https://wa.me/555198317780" target="_blank" onclick="closeMobile()"
+        <a href="https://wa.me/555198317780" target="_blank" rel="noopener noreferrer" onclick="closeMobile()"
             style="color:#25d366; font-size:1.3rem;">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </a>
@@ -2177,7 +2224,7 @@
                     <li><a href="#portfolio">Portfólio</a></li>
                     <li><a href="#clientes">Clientes</a></li>
                     <li><a href="#contato">Contato</a></li>
-                    <li><a href="https://wa.me/555198317780" target="_blank" class="nav-cta">
+                    <li><a href="https://wa.me/555198317780" target="_blank" rel="noopener noreferrer" class="nav-cta">
                             <i class="fa-brands fa-whatsapp"></i> WhatsApp
                         </a></li>
                 </ul>
@@ -2295,7 +2342,7 @@
                     <p class="hero-sub">Da concepção ao deploy, transformamos desafios de negócio em soluções digitais
                         eficientes e escaláveis. Tecnologia que gera resultado.</p>
                     <div class="hero-actions">
-                        <a href="https://wa.me/555198317780" target="_blank" class="btn-primary">
+                        <a href="https://wa.me/555198317780" target="_blank" rel="noopener noreferrer" class="btn-primary">
                             <i class="fa-brands fa-whatsapp"></i><span>Começar meu projeto</span>
                         </a>
                         <a href="#portfolio" class="btn-outline">Ver portfólio <i
@@ -2580,7 +2627,7 @@
                 <!-- Galeria -->
                 <div style="position:relative;">
                     <div id="modalGallery" style="border-radius:12px;overflow:hidden;background:#070a18;border:1px solid rgba(67,56,202,.2);position:relative;">
-                        <img id="modalMainImg" src="" alt="" style="width:100%;max-height:440px;object-fit:contain;object-position:top;display:block;">
+                        <img id="modalMainImg" src="" alt="" decoding="async" style="width:100%;max-height:440px;object-fit:contain;object-position:top;display:block;">
                     </div>
                     <!-- Setas de navegação -->
                     <button id="modalPrev" onclick="galleryNav(-1)" style="display:none;position:absolute;left:-19px;top:50%;transform:translateY(-50%);background:rgba(67,56,202,.75);backdrop-filter:blur(4px);border:none;color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;box-shadow:0 5px 20px rgba(0,0,0,.4);transition:all .3s;z-index:3;align-items:center;justify-content:center;" onmouseover="this.style.background='var(--purple)';this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.background='rgba(67,56,202,.75)';this.style.transform='translateY(-50%)'"><i class="fa-solid fa-chevron-left"></i></button>
@@ -2608,7 +2655,7 @@
                 <!-- 1. Control OnLine -->
                 <div class="portfolio-card" style="cursor:pointer;" onclick="openPortfolioModal(0)">
                     <div class="portfolio-card-visual">
-                        <img src="assets/img/projects/Tela de login.webp" alt="Control OnLine"
+                        <img src="assets/img/projects/Tela de login.webp" alt="Control OnLine" loading="lazy" decoding="async"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="visual-fallback" style="background:linear-gradient(135deg,#0a0d20,#0d1338)">
                             <div class="visual-fallback-inner"><i class="fa-solid fa-desktop"></i>Control OnLine</div>
@@ -2628,7 +2675,7 @@
                 <!-- 2. IdealCred -->
                 <div class="portfolio-card" style="cursor:pointer;" onclick="openPortfolioModal(1)">
                     <div class="portfolio-card-visual">
-                        <img src="assets/img/projects/idealcred.webp" alt="IdealCred"
+                        <img src="assets/img/projects/idealcred.webp" alt="IdealCred" loading="lazy" decoding="async"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="visual-fallback" style="background:linear-gradient(135deg,#0a0d20,#0f1530)">
                             <div class="visual-fallback-inner"><i class="fa-solid fa-hand-holding-dollar"></i>IdealCred</div>
@@ -2648,7 +2695,7 @@
                 <!-- 3. Conexão OnLine -->
                 <div class="portfolio-card" style="cursor:pointer;" onclick="openPortfolioModal(2)">
                     <div class="portfolio-card-visual">
-                        <img src="assets/img/projects/CO-INICIAL.webp" alt="Conexão OnLine"
+                        <img src="assets/img/projects/CO-INICIAL.webp" alt="Conexão OnLine" loading="lazy" decoding="async"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="visual-fallback" style="background:linear-gradient(135deg,#0a0d1c,#0f1230)">
                             <div class="visual-fallback-inner"><i class="fa-solid fa-mobile-screen"></i>Conexão OnLine</div>
@@ -2668,7 +2715,7 @@
                 <!-- 4. Forja Equipamentos -->
                 <div class="portfolio-card" style="cursor:pointer;" onclick="openPortfolioModal(3)">
                     <div class="portfolio-card-visual">
-                        <img src="assets/img/projects/FORJA.webp" alt="Forja Equipamentos"
+                        <img src="assets/img/projects/FORJA.webp" alt="Forja Equipamentos" loading="lazy" decoding="async"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="visual-fallback" style="background:linear-gradient(135deg,#0d0a22,#1a1030)">
                             <div class="visual-fallback-inner"><i class="fa-solid fa-industry"></i>Forja Equipamentos</div>
@@ -2688,7 +2735,7 @@
                 <!-- 5. Landing Pages -->
                 <div class="portfolio-card" style="cursor:pointer;" onclick="openPortfolioModal(4)">
                     <div class="portfolio-card-visual">
-                        <img src="assets/img/projects/LP.webp" alt="Landing Page"
+                        <img src="assets/img/projects/LP.webp" alt="Landing Page" loading="lazy" decoding="async"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="visual-fallback" style="background:linear-gradient(135deg,#0a1018,#0f182a)">
                             <div class="visual-fallback-inner"><i class="fa-solid fa-layer-group"></i>Landing Pages</div>
@@ -2708,7 +2755,7 @@
                 <!-- 6. ZNS Advogados -->
                 <div class="portfolio-card" style="cursor:pointer;" onclick="openPortfolioModal(5)">
                     <div class="portfolio-card-visual">
-                        <img src="assets/img/projects/ZNS.webp" alt="ZNS Advogados"
+                        <img src="assets/img/projects/ZNS.webp" alt="ZNS Advogados" loading="lazy" decoding="async"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="visual-fallback" style="background:linear-gradient(135deg,#0a0f18,#0d1525)">
                             <div class="visual-fallback-inner"><i class="fa-solid fa-scale-balanced"></i>ZNS Advogados</div>
@@ -2851,7 +2898,7 @@
         const container = document.getElementById('modalThumbs');
         if (p.images.length <= 1) { container.innerHTML = ''; return; }
         container.innerHTML = p.images.map((img, i) =>
-            `<img class="modal-thumb" src="${img.url}" alt="${img.alt}" onclick="setModalImg(${i})"
+            `<img class="modal-thumb" src="${img.url}" alt="${img.alt}" loading="lazy" decoding="async" onclick="setModalImg(${i})"
              style="width:80px;height:54px;object-fit:cover;object-position:top;border-radius:6px;cursor:pointer;border:2px solid ${i === 0 ? 'var(--purple-light)' : 'rgba(255,255,255,.1)'};opacity:${i === 0 ? '1' : '0.55'};transition:all .25s;">`
         ).join('');
     }
@@ -2898,46 +2945,46 @@
         <div class="carousel-wrapper">
             <div class="carousel-track">
                                 <!-- Set 1 -->
-                <div class="client-box logo-light"><img src="assets/img/calistro2.webp"
+                <div class="client-box logo-light"><img src="assets/img/calistro2.webp" loading="lazy" decoding="async"
                         alt="Calistro Mídias"></div>
-                <div class="client-box logo-dark"><img src="assets/img/cidadeDeGramado.webp"
+                <div class="client-box logo-dark"><img src="assets/img/cidadeDeGramado.webp" loading="lazy" decoding="async"
                         alt="Jornal Cidade de Gramado"></div>
-                <div class="client-box logo-light"><img src="assets/img/forja.webp"
+                <div class="client-box logo-light"><img src="assets/img/forja.webp" loading="lazy" decoding="async"
                         alt="Forja Equipamentos"></div>
-                <div class="client-box logo-light"><img src="assets/img/kravo_e_Kanela.webp"
+                <div class="client-box logo-light"><img src="assets/img/kravo_e_Kanela.webp" loading="lazy" decoding="async"
                         alt="Kravo e Kanela Semijoias"></div>
-                <div class="client-box logo-light"><img src="assets/img/logo-goura.webp"
+                <div class="client-box logo-light"><img src="assets/img/logo-goura.webp" loading="lazy" decoding="async"
                         alt="Goura"></div>
-                <div class="client-box logo-light"><img src="assets/img/Logo-OnLine.webp"
+                <div class="client-box logo-light"><img src="assets/img/Logo-OnLine.webp" loading="lazy" decoding="async"
                         alt="OnLine Contabilidade"></div>
-                <div class="client-box logo-dark"><img src="assets/img/logo-taille.webp"
+                <div class="client-box logo-dark"><img src="assets/img/logo-taille.webp" loading="lazy" decoding="async"
                         alt="Taille Consultoria"></div>
-                <div class="client-box logo-dark"><img src="assets/img/logo-zns.webp"
+                <div class="client-box logo-dark"><img src="assets/img/logo-zns.webp" loading="lazy" decoding="async"
                         alt="ZNS Advogados"></div>
-                <div class="client-box logo-light"><img src="assets/img/RioGrande.webp"
+                <div class="client-box logo-light"><img src="assets/img/RioGrande.webp" loading="lazy" decoding="async"
                         alt="Pelos Caminhos do Rio Grande"></div>
-                <div class="client-box logo-light"><img src="assets/img/Scopel.webp"
+                <div class="client-box logo-light"><img src="assets/img/Scopel.webp" loading="lazy" decoding="async"
                         alt="Scopel Gestão Hospitalar"></div>
                 <!-- Set 2 (duplicate) -->
-                <div class="client-box logo-light"><img src="assets/img/calistro2.webp"
+                <div class="client-box logo-light"><img src="assets/img/calistro2.webp" loading="lazy" decoding="async"
                         alt="Calistro Mídias"></div>
-                <div class="client-box logo-dark"><img src="assets/img/cidadeDeGramado.webp"
+                <div class="client-box logo-dark"><img src="assets/img/cidadeDeGramado.webp" loading="lazy" decoding="async"
                         alt="Jornal Cidade de Gramado"></div>
-                <div class="client-box logo-light"><img src="assets/img/forja.webp"
+                <div class="client-box logo-light"><img src="assets/img/forja.webp" loading="lazy" decoding="async"
                         alt="Forja Equipamentos"></div>
-                <div class="client-box logo-light"><img src="assets/img/kravo_e_Kanela.webp"
+                <div class="client-box logo-light"><img src="assets/img/kravo_e_Kanela.webp" loading="lazy" decoding="async"
                         alt="Kravo e Kanela Semijoias"></div>
-                <div class="client-box logo-light"><img src="assets/img/logo-goura.webp"
+                <div class="client-box logo-light"><img src="assets/img/logo-goura.webp" loading="lazy" decoding="async"
                         alt="Goura"></div>
-                <div class="client-box logo-light"><img src="assets/img/Logo-OnLine.webp"
+                <div class="client-box logo-light"><img src="assets/img/Logo-OnLine.webp" loading="lazy" decoding="async"
                         alt="OnLine Contabilidade"></div>
-                <div class="client-box logo-dark"><img src="assets/img/logo-taille.webp"
+                <div class="client-box logo-dark"><img src="assets/img/logo-taille.webp" loading="lazy" decoding="async"
                         alt="Taille Consultoria"></div>
-                <div class="client-box logo-dark"><img src="assets/img/logo-zns.webp"
+                <div class="client-box logo-dark"><img src="assets/img/logo-zns.webp" loading="lazy" decoding="async"
                         alt="ZNS Advogados"></div>
-                <div class="client-box logo-light"><img src="assets/img/RioGrande.webp"
+                <div class="client-box logo-light"><img src="assets/img/RioGrande.webp" loading="lazy" decoding="async"
                         alt="Pelos Caminhos do Rio Grande"></div>
-                <div class="client-box logo-light"><img src="assets/img/Scopel.webp"
+                <div class="client-box logo-light"><img src="assets/img/Scopel.webp" loading="lazy" decoding="async"
                         alt="Scopel Gestão Hospitalar"></div>
             </div>
         </div>
@@ -2956,7 +3003,7 @@
                 <p class="cta-sub">Conte sobre o seu desafio. Em minutos você fala com quem pode transformar sua ideia
                     em uma solução real e funcional.</p>
                 <div class="cta-actions">
-                    <a href="https://wa.me/555198317780" target="_blank" class="btn-cta">
+                    <a href="https://wa.me/555198317780" target="_blank" rel="noopener noreferrer" class="btn-cta">
                         <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp agora
                     </a>
                     <a href="#contato" class="btn-cta-sec">
@@ -2973,7 +3020,7 @@
             <div class="contact-grid">
 
                 <div class="contact-left">
-                    <img src="assets/img/logo.webp" alt="AppCod" class="contact-logo reveal"
+                    <img src="assets/img/logo.webp" alt="AppCod" class="contact-logo reveal" loading="lazy" decoding="async"
                         onerror="this.style.display='none'">
                     <div class="section-tag purple reveal">Fale conosco</div>
                     <h2 class="section-title reveal" style="color:var(--dark)">
@@ -2984,7 +3031,7 @@
                         Respondemos rapidamente.
                     </p>
                     <div class="contact-cards reveal">
-                        <a href="https://wa.me/555198317780" target="_blank" class="contact-card">
+                        <a href="https://wa.me/555198317780" target="_blank" rel="noopener noreferrer" class="contact-card">
                             <div class="contact-card-icon wa"><i class="fa-brands fa-whatsapp"></i></div>
                             <div class="contact-card-info">
                                 <strong>WhatsApp</strong>
@@ -3053,7 +3100,7 @@
         <div class="container">
             <div class="footer-inner">
                 <a href="#" class="footer-logo-wrap">
-                    <img src="assets/img/logo.webp" alt="AppCod" style="height:28px"
+                    <img src="assets/img/logo.webp" alt="AppCod" style="height:28px" loading="lazy" decoding="async"
                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                     <span
                         style="display:none;font-family:var(--font-display);font-weight:800;color:var(--gray-dark)">AppCod</span>
